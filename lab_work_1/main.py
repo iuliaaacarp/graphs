@@ -1,5 +1,7 @@
 from utilities import Utilities
 
+#TODO iterator for bonus
+
 def main():
     utility = Utilities()
     graph = utility.read_from_file("graph1m.txt")
