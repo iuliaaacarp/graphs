@@ -1,6 +1,5 @@
 from utilities import Utilities
 
-#TODO iterator for bonus
 
 def main():
     utility = Utilities()
