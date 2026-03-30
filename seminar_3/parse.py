@@ -1,4 +1,4 @@
-from seminar_2.graph import Graph
+from seminar_2.graph import *
 
 def bfs(g, s):
     """
@@ -16,8 +16,7 @@ def bfs(g, s):
     dist[s] = 0
     parent[s] = None
 
-    queue = []
-    queue.append(s)
+    queue = [s]
     visited = set()
     visited.add(s)
     while len(queue) > 0:
@@ -26,10 +25,28 @@ def bfs(g, s):
             if next in visited:
                 continue
             dist[next] = dist[current] + 1
+            parent[next] = current
             visited.add(next)
             queue.append(next)
 
     return (dist, parent)
+
+def shortest_path(g, s, t):
+    """
+    Returns a list of vertices representing the shortest (min len) path from s to t in graph g.
+    Returns None if there is no path
+    Precondition: s and t are vertices in graph g
+    """
+    dist, parent = bfs(g, s)
+    if t not in parent.keys():
+        return None
+    current_vertex = t
+    path = [current_vertex]
+    while current_vertex !=s:
+        current_vertex = parent[current_vertex]
+        path.append(current_vertex)
+    path.reverse()
+    return path
 
 def test_bfs():
     g = Graph.small_graph()
