@@ -1,6 +1,4 @@
-import sys
 from utilities import Utilities
-import pdoc
 
 class UI:
     def __init__(self):
@@ -157,7 +155,3 @@ class UI:
                     print("-->Invalid choice.")
             except Exception as e:
                 print(f"Error: {e}")
-
-if __name__ == "__main__":
-    ui = UI()
-    ui.run()
