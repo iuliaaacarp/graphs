@@ -1,7 +1,6 @@
 import random
 import copy
 
-
 class DirectedGraph:
     """
     A class used to represent a Directed Graph using adjacency maps.
