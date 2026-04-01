@@ -68,6 +68,7 @@ el.replaceWith(d);
     def __init__(self, vertices=0):
         &#34;&#34;&#34;
         Initializes a directed graph with a fixed number of vertices (0 to n-1).
+
         Complexity: O(V)
         &#34;&#34;&#34;
         self._vertices = set(range(vertices))
@@ -77,6 +78,7 @@ el.replaceWith(d);
     def get_number_of_vertices(self):
         &#34;&#34;&#34;
         Returns the total number of vertices in the graph.
+
         Complexity: O(1)
         &#34;&#34;&#34;
         return len(self._vertices)
@@ -84,6 +86,8 @@ el.replaceWith(d);
     def get_in_degree(self, vertex):
         &#34;&#34;&#34;
         Returns the number of inbound edges for a given vertex.
+
+            * :param vertex: The vertex identifier.
         Complexity: O(1)
         &#34;&#34;&#34;
         return len(self._in_neighbors[vertex])
@@ -91,6 +95,8 @@ el.replaceWith(d);
     def get_out_degree(self, vertex):
         &#34;&#34;&#34;
         Returns the number of outbound edges for a given vertex.
+
+            * :param vertex: The vertex identifier.
         Complexity: O(1)
         &#34;&#34;&#34;
         return len(self._out_neighbors[vertex])
@@ -98,6 +104,9 @@ el.replaceWith(d);
     def get_edge_cost(self, u, v):
         &#34;&#34;&#34;
         Returns the cost of the edge from vertex u to vertex v.
+
+            * :param u: The vertex u identifier.
+            * :param v: The vertex v identifier.
         Complexity: O(1)
         &#34;&#34;&#34;
         return self._out_neighbors[u][v]
@@ -105,7 +114,12 @@ el.replaceWith(d);
     def set_edge_cost(self, u, v, cost):
         &#34;&#34;&#34;
         Updates the cost of an existing edge (u, v).
+
+            * :param u: The vertex u identifier.
+            * :param v: The vertex v identifier.
+            * :param cost: The new cost.
         Complexity: O(1)
+
         Raises Exception if the edge does not exist.
         &#34;&#34;&#34;
         if v in self._out_neighbors[u]:
@@ -117,6 +131,7 @@ el.replaceWith(d);
     def iterate_vertices(self):
         &#34;&#34;&#34;
         Returns an iterator for the set of vertices.
+
         Complexity: O(1)
         &#34;&#34;&#34;
         return iter(self._vertices)
@@ -124,6 +139,8 @@ el.replaceWith(d);
     def iterate_out_neighbours(self, u):
         &#34;&#34;&#34;
         Returns an iterator over the keys (neighbors) of the outbound edges of u.
+
+            * :param u: The vertex identifier.
         Complexity: O(1)
         &#34;&#34;&#34;
         return iter(self._out_neighbors[u].keys())
@@ -131,6 +148,8 @@ el.replaceWith(d);
     def iterate_in_neighbours(self, u):
         &#34;&#34;&#34;
         Returns an iterator over the keys (neighbors) of the inbound edges of u.
+
+            * :param u: The vertex identifier.
         Complexity: O(1)
         &#34;&#34;&#34;
         return iter(self._in_neighbors[u].keys())
@@ -138,13 +157,17 @@ el.replaceWith(d);
     def is_edge(self, u, v):
         &#34;&#34;&#34;
         Checks if a directed edge exists from u to v.
+
+            * :param u: The vertex u identifier.
+            * :param v: The vertex v identifier.
         Complexity: O(1)
         &#34;&#34;&#34;
         return u in self._out_neighbors and v in self._out_neighbors[u]
 
     def iterate_vertices(self):
         &#34;&#34;&#34;
-        Returns an iterator for all vertices in the graph.
+        Returns an iterator for all vertices in the graph
+
         Usage: for v in graph.iterate_vertices():
         &#34;&#34;&#34;
         return iter(self._vertices)
@@ -152,6 +175,8 @@ el.replaceWith(d);
     def iterate_out_neighbors(self, u):
         &#34;&#34;&#34;
         Returns an iterator for the vertices v such that there is an edge (u, v).
+
+            * :param u: The vertex identifier.
         Usage: for v in graph.iterate_out_neighbors(u):
         &#34;&#34;&#34;
         if u not in self._out_neighbors:
@@ -161,6 +186,8 @@ el.replaceWith(d);
     def iterate_in_neighbors(self, v):
         &#34;&#34;&#34;
         Returns an iterator for the vertices u such that there is an edge (u, v).
+
+            * :param v: The vertex identifier.
         Usage: for u in graph.iterate_in_neighbors(v):
         &#34;&#34;&#34;
         if v not in self._in_neighbors:
@@ -177,8 +204,8 @@ el.replaceWith(d);
 <dt><strong><code>_out_neighbors</code></strong> :&ensp;<code>dict</code></dt>
 <dd>Maps a vertex to a dictionary of its outgoing neighbors and edge costs.</dd>
 </dl>
-<p>Initializes a directed graph with a fixed number of vertices (0 to n-1).
-Complexity: O(V)</p></div>
+<p>Initializes a directed graph with a fixed number of vertices (0 to n-1).</p>
+<p>Complexity: O(V)</p></div>
 <h3>Subclasses</h3>
 <ul class="hlist">
 <li>operations.GraphOperations</li>
@@ -196,12 +223,18 @@ Complexity: O(V)</p></div>
 <pre><code class="python">def get_edge_cost(self, u, v):
     &#34;&#34;&#34;
     Returns the cost of the edge from vertex u to vertex v.
+
+        * :param u: The vertex u identifier.
+        * :param v: The vertex v identifier.
     Complexity: O(1)
     &#34;&#34;&#34;
     return self._out_neighbors[u][v]</code></pre>
 </details>
-<div class="desc"><p>Returns the cost of the edge from vertex u to vertex v.
-Complexity: O(1)</p></div>
+<div class="desc"><p>Returns the cost of the edge from vertex u to vertex v.</p>
+<pre><code>* :param u: The vertex u identifier.
+* :param v: The vertex v identifier.
+</code></pre>
+<p>Complexity: O(1)</p></div>
 </dd>
 <dt id="directed_graph.DirectedGraph.get_in_degree"><code class="name flex">
 <span>def <span class="ident">get_in_degree</span></span>(<span>self, vertex)</span>
@@ -214,12 +247,16 @@ Complexity: O(1)</p></div>
 <pre><code class="python">def get_in_degree(self, vertex):
     &#34;&#34;&#34;
     Returns the number of inbound edges for a given vertex.
+
+        * :param vertex: The vertex identifier.
     Complexity: O(1)
     &#34;&#34;&#34;
     return len(self._in_neighbors[vertex])</code></pre>
 </details>
-<div class="desc"><p>Returns the number of inbound edges for a given vertex.
-Complexity: O(1)</p></div>
+<div class="desc"><p>Returns the number of inbound edges for a given vertex.</p>
+<pre><code>* :param vertex: The vertex identifier.
+</code></pre>
+<p>Complexity: O(1)</p></div>
 </dd>
 <dt id="directed_graph.DirectedGraph.get_number_of_vertices"><code class="name flex">
 <span>def <span class="ident">get_number_of_vertices</span></span>(<span>self)</span>
@@ -232,12 +269,13 @@ Complexity: O(1)</p></div>
 <pre><code class="python">def get_number_of_vertices(self):
     &#34;&#34;&#34;
     Returns the total number of vertices in the graph.
+
     Complexity: O(1)
     &#34;&#34;&#34;
     return len(self._vertices)</code></pre>
 </details>
-<div class="desc"><p>Returns the total number of vertices in the graph.
-Complexity: O(1)</p></div>
+<div class="desc"><p>Returns the total number of vertices in the graph.</p>
+<p>Complexity: O(1)</p></div>
 </dd>
 <dt id="directed_graph.DirectedGraph.get_out_degree"><code class="name flex">
 <span>def <span class="ident">get_out_degree</span></span>(<span>self, vertex)</span>
@@ -250,12 +288,16 @@ Complexity: O(1)</p></div>
 <pre><code class="python">def get_out_degree(self, vertex):
     &#34;&#34;&#34;
     Returns the number of outbound edges for a given vertex.
+
+        * :param vertex: The vertex identifier.
     Complexity: O(1)
     &#34;&#34;&#34;
     return len(self._out_neighbors[vertex])</code></pre>
 </details>
-<div class="desc"><p>Returns the number of outbound edges for a given vertex.
-Complexity: O(1)</p></div>
+<div class="desc"><p>Returns the number of outbound edges for a given vertex.</p>
+<pre><code>* :param vertex: The vertex identifier.
+</code></pre>
+<p>Complexity: O(1)</p></div>
 </dd>
 <dt id="directed_graph.DirectedGraph.is_edge"><code class="name flex">
 <span>def <span class="ident">is_edge</span></span>(<span>self, u, v)</span>
@@ -268,12 +310,18 @@ Complexity: O(1)</p></div>
 <pre><code class="python">def is_edge(self, u, v):
     &#34;&#34;&#34;
     Checks if a directed edge exists from u to v.
+
+        * :param u: The vertex u identifier.
+        * :param v: The vertex v identifier.
     Complexity: O(1)
     &#34;&#34;&#34;
     return u in self._out_neighbors and v in self._out_neighbors[u]</code></pre>
 </details>
-<div class="desc"><p>Checks if a directed edge exists from u to v.
-Complexity: O(1)</p></div>
+<div class="desc"><p>Checks if a directed edge exists from u to v.</p>
+<pre><code>* :param u: The vertex u identifier.
+* :param v: The vertex v identifier.
+</code></pre>
+<p>Complexity: O(1)</p></div>
 </dd>
 <dt id="directed_graph.DirectedGraph.iterate_in_neighbors"><code class="name flex">
 <span>def <span class="ident">iterate_in_neighbors</span></span>(<span>self, v)</span>
@@ -286,14 +334,18 @@ Complexity: O(1)</p></div>
 <pre><code class="python">def iterate_in_neighbors(self, v):
     &#34;&#34;&#34;
     Returns an iterator for the vertices u such that there is an edge (u, v).
+
+        * :param v: The vertex identifier.
     Usage: for u in graph.iterate_in_neighbors(v):
     &#34;&#34;&#34;
     if v not in self._in_neighbors:
         raise ValueError(&#34;Vertex not in graph&#34;)
     return iter(self._in_neighbors[v].keys())</code></pre>
 </details>
-<div class="desc"><p>Returns an iterator for the vertices u such that there is an edge (u, v).
-Usage: for u in graph.iterate_in_neighbors(v):</p></div>
+<div class="desc"><p>Returns an iterator for the vertices u such that there is an edge (u, v).</p>
+<pre><code>* :param v: The vertex identifier.
+</code></pre>
+<p>Usage: for u in graph.iterate_in_neighbors(v):</p></div>
 </dd>
 <dt id="directed_graph.DirectedGraph.iterate_in_neighbours"><code class="name flex">
 <span>def <span class="ident">iterate_in_neighbours</span></span>(<span>self, u)</span>
@@ -306,12 +358,16 @@ Usage: for u in graph.iterate_in_neighbors(v):</p></div>
 <pre><code class="python">def iterate_in_neighbours(self, u):
     &#34;&#34;&#34;
     Returns an iterator over the keys (neighbors) of the inbound edges of u.
+
+        * :param u: The vertex identifier.
     Complexity: O(1)
     &#34;&#34;&#34;
     return iter(self._in_neighbors[u].keys())</code></pre>
 </details>
-<div class="desc"><p>Returns an iterator over the keys (neighbors) of the inbound edges of u.
-Complexity: O(1)</p></div>
+<div class="desc"><p>Returns an iterator over the keys (neighbors) of the inbound edges of u.</p>
+<pre><code>* :param u: The vertex identifier.
+</code></pre>
+<p>Complexity: O(1)</p></div>
 </dd>
 <dt id="directed_graph.DirectedGraph.iterate_out_neighbors"><code class="name flex">
 <span>def <span class="ident">iterate_out_neighbors</span></span>(<span>self, u)</span>
@@ -324,14 +380,18 @@ Complexity: O(1)</p></div>
 <pre><code class="python">def iterate_out_neighbors(self, u):
     &#34;&#34;&#34;
     Returns an iterator for the vertices v such that there is an edge (u, v).
+
+        * :param u: The vertex identifier.
     Usage: for v in graph.iterate_out_neighbors(u):
     &#34;&#34;&#34;
     if u not in self._out_neighbors:
         raise ValueError(&#34;Vertex not in graph&#34;)
     return iter(self._out_neighbors[u].keys())</code></pre>
 </details>
-<div class="desc"><p>Returns an iterator for the vertices v such that there is an edge (u, v).
-Usage: for v in graph.iterate_out_neighbors(u):</p></div>
+<div class="desc"><p>Returns an iterator for the vertices v such that there is an edge (u, v).</p>
+<pre><code>* :param u: The vertex identifier.
+</code></pre>
+<p>Usage: for v in graph.iterate_out_neighbors(u):</p></div>
 </dd>
 <dt id="directed_graph.DirectedGraph.iterate_out_neighbours"><code class="name flex">
 <span>def <span class="ident">iterate_out_neighbours</span></span>(<span>self, u)</span>
@@ -344,12 +404,16 @@ Usage: for v in graph.iterate_out_neighbors(u):</p></div>
 <pre><code class="python">def iterate_out_neighbours(self, u):
     &#34;&#34;&#34;
     Returns an iterator over the keys (neighbors) of the outbound edges of u.
+
+        * :param u: The vertex identifier.
     Complexity: O(1)
     &#34;&#34;&#34;
     return iter(self._out_neighbors[u].keys())</code></pre>
 </details>
-<div class="desc"><p>Returns an iterator over the keys (neighbors) of the outbound edges of u.
-Complexity: O(1)</p></div>
+<div class="desc"><p>Returns an iterator over the keys (neighbors) of the outbound edges of u.</p>
+<pre><code>* :param u: The vertex identifier.
+</code></pre>
+<p>Complexity: O(1)</p></div>
 </dd>
 <dt id="directed_graph.DirectedGraph.iterate_vertices"><code class="name flex">
 <span>def <span class="ident">iterate_vertices</span></span>(<span>self)</span>
@@ -361,13 +425,14 @@ Complexity: O(1)</p></div>
 </summary>
 <pre><code class="python">def iterate_vertices(self):
     &#34;&#34;&#34;
-    Returns an iterator for all vertices in the graph.
+    Returns an iterator for all vertices in the graph
+
     Usage: for v in graph.iterate_vertices():
     &#34;&#34;&#34;
     return iter(self._vertices)</code></pre>
 </details>
-<div class="desc"><p>Returns an iterator for all vertices in the graph.
-Usage: for v in graph.iterate_vertices():</p></div>
+<div class="desc"><p>Returns an iterator for all vertices in the graph</p>
+<p>Usage: for v in graph.iterate_vertices():</p></div>
 </dd>
 <dt id="directed_graph.DirectedGraph.set_edge_cost"><code class="name flex">
 <span>def <span class="ident">set_edge_cost</span></span>(<span>self, u, v, cost)</span>
@@ -380,7 +445,12 @@ Usage: for v in graph.iterate_vertices():</p></div>
 <pre><code class="python">def set_edge_cost(self, u, v, cost):
     &#34;&#34;&#34;
     Updates the cost of an existing edge (u, v).
+
+        * :param u: The vertex u identifier.
+        * :param v: The vertex v identifier.
+        * :param cost: The new cost.
     Complexity: O(1)
+
     Raises Exception if the edge does not exist.
     &#34;&#34;&#34;
     if v in self._out_neighbors[u]:
@@ -389,9 +459,13 @@ Usage: for v in graph.iterate_vertices():</p></div>
         return
     raise Exception(&#34;Edge cost cannot be set: Edge does not exist&#34;)</code></pre>
 </details>
-<div class="desc"><p>Updates the cost of an existing edge (u, v).
-Complexity: O(1)
-Raises Exception if the edge does not exist.</p></div>
+<div class="desc"><p>Updates the cost of an existing edge (u, v).</p>
+<pre><code>* :param u: The vertex u identifier.
+* :param v: The vertex v identifier.
+* :param cost: The new cost.
+</code></pre>
+<p>Complexity: O(1)</p>
+<p>Raises Exception if the edge does not exist.</p></div>
 </dd>
 </dl>
 </dd>

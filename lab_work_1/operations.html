@@ -64,7 +64,12 @@ el.replaceWith(d);
     def add_edge(self, u, v, cost):
         &#34;&#34;&#34;
         Adds a directed edge from u to v with the specified cost.
+
+            * :param u: The vertex u identifier.
+            * :param v: The vertex v identifier.
+            * :param cost: The cost of the edge.
         Complexity: O(1)
+
         Returns True if added, False if vertices don&#39;t exist or edge already exists.
         &#34;&#34;&#34;
         if u in self._vertices and v in self._vertices:
@@ -77,7 +82,11 @@ el.replaceWith(d);
     def remove_edge(self, u, v):
         &#34;&#34;&#34;
         Removes the directed edge from u to v.
+
+            * :param u: The vertex u identifier.
+            * :param v: The vertex v identifier.
         Complexity: O(1)
+
         Returns True if removed, False if edge did not exist.
         &#34;&#34;&#34;
         if not self.is_edge(u, v):
@@ -89,7 +98,10 @@ el.replaceWith(d);
     def add_vertex(self, vertex):
         &#34;&#34;&#34;
         Adds a new vertex to the graph.
+
+            * :param vertex: The new vertex identifier.
         Complexity: O(1)
+
         Returns True if successful, False if vertex already exists.
         &#34;&#34;&#34;
         if vertex not in self._vertices:
@@ -102,7 +114,10 @@ el.replaceWith(d);
     def remove_vertex(self, vertex):
         &#34;&#34;&#34;
         Removes a vertex and all its associated edges from the graph.
+
+            * :param vertex: The vertex identifier.
         Complexity: O(deg_in + deg_out)
+
         Returns True if successful, False if vertex does not exist.
         &#34;&#34;&#34;
         if vertex not in self._vertices:
@@ -119,14 +134,15 @@ el.replaceWith(d);
     def copy_graph(self):
         &#34;&#34;&#34;
         Returns a deep copy of the current graph.
+
         Complexity: O(V + E)
         &#34;&#34;&#34;
         return copy.deepcopy(self)</code></pre>
 </details>
 <div class="desc"><p>Subclass of DirectedGraph providing modification operations like adding/removing
 vertices and edges, as well as copying.</p>
-<p>Initializes a directed graph with a fixed number of vertices (0 to n-1).
-Complexity: O(V)</p></div>
+<p>Initializes a directed graph with a fixed number of vertices (0 to n-1).</p>
+<p>Complexity: O(V)</p></div>
 <h3>Ancestors</h3>
 <ul class="hlist">
 <li><a title="directed_graph.DirectedGraph" href="directed_graph.html#directed_graph.DirectedGraph">DirectedGraph</a></li>
@@ -144,7 +160,12 @@ Complexity: O(V)</p></div>
 <pre><code class="python">def add_edge(self, u, v, cost):
     &#34;&#34;&#34;
     Adds a directed edge from u to v with the specified cost.
+
+        * :param u: The vertex u identifier.
+        * :param v: The vertex v identifier.
+        * :param cost: The cost of the edge.
     Complexity: O(1)
+
     Returns True if added, False if vertices don&#39;t exist or edge already exists.
     &#34;&#34;&#34;
     if u in self._vertices and v in self._vertices:
@@ -154,9 +175,13 @@ Complexity: O(V)</p></div>
             return True
     return False</code></pre>
 </details>
-<div class="desc"><p>Adds a directed edge from u to v with the specified cost.
-Complexity: O(1)
-Returns True if added, False if vertices don't exist or edge already exists.</p></div>
+<div class="desc"><p>Adds a directed edge from u to v with the specified cost.</p>
+<pre><code>* :param u: The vertex u identifier.
+* :param v: The vertex v identifier.
+* :param cost: The cost of the edge.
+</code></pre>
+<p>Complexity: O(1)</p>
+<p>Returns True if added, False if vertices don't exist or edge already exists.</p></div>
 </dd>
 <dt id="operations.GraphOperations.add_vertex"><code class="name flex">
 <span>def <span class="ident">add_vertex</span></span>(<span>self, vertex)</span>
@@ -169,7 +194,10 @@ Returns True if added, False if vertices don't exist or edge already exists.</p>
 <pre><code class="python">def add_vertex(self, vertex):
     &#34;&#34;&#34;
     Adds a new vertex to the graph.
+
+        * :param vertex: The new vertex identifier.
     Complexity: O(1)
+
     Returns True if successful, False if vertex already exists.
     &#34;&#34;&#34;
     if vertex not in self._vertices:
@@ -179,9 +207,11 @@ Returns True if added, False if vertices don't exist or edge already exists.</p>
         return True
     return False</code></pre>
 </details>
-<div class="desc"><p>Adds a new vertex to the graph.
-Complexity: O(1)
-Returns True if successful, False if vertex already exists.</p></div>
+<div class="desc"><p>Adds a new vertex to the graph.</p>
+<pre><code>* :param vertex: The new vertex identifier.
+</code></pre>
+<p>Complexity: O(1)</p>
+<p>Returns True if successful, False if vertex already exists.</p></div>
 </dd>
 <dt id="operations.GraphOperations.copy_graph"><code class="name flex">
 <span>def <span class="ident">copy_graph</span></span>(<span>self)</span>
@@ -194,12 +224,13 @@ Returns True if successful, False if vertex already exists.</p></div>
 <pre><code class="python">def copy_graph(self):
     &#34;&#34;&#34;
     Returns a deep copy of the current graph.
+
     Complexity: O(V + E)
     &#34;&#34;&#34;
     return copy.deepcopy(self)</code></pre>
 </details>
-<div class="desc"><p>Returns a deep copy of the current graph.
-Complexity: O(V + E)</p></div>
+<div class="desc"><p>Returns a deep copy of the current graph.</p>
+<p>Complexity: O(V + E)</p></div>
 </dd>
 <dt id="operations.GraphOperations.remove_edge"><code class="name flex">
 <span>def <span class="ident">remove_edge</span></span>(<span>self, u, v)</span>
@@ -212,7 +243,11 @@ Complexity: O(V + E)</p></div>
 <pre><code class="python">def remove_edge(self, u, v):
     &#34;&#34;&#34;
     Removes the directed edge from u to v.
+
+        * :param u: The vertex u identifier.
+        * :param v: The vertex v identifier.
     Complexity: O(1)
+
     Returns True if removed, False if edge did not exist.
     &#34;&#34;&#34;
     if not self.is_edge(u, v):
@@ -221,9 +256,12 @@ Complexity: O(V + E)</p></div>
     del self._out_neighbors[u][v]
     return True</code></pre>
 </details>
-<div class="desc"><p>Removes the directed edge from u to v.
-Complexity: O(1)
-Returns True if removed, False if edge did not exist.</p></div>
+<div class="desc"><p>Removes the directed edge from u to v.</p>
+<pre><code>* :param u: The vertex u identifier.
+* :param v: The vertex v identifier.
+</code></pre>
+<p>Complexity: O(1)</p>
+<p>Returns True if removed, False if edge did not exist.</p></div>
 </dd>
 <dt id="operations.GraphOperations.remove_vertex"><code class="name flex">
 <span>def <span class="ident">remove_vertex</span></span>(<span>self, vertex)</span>
@@ -236,7 +274,10 @@ Returns True if removed, False if edge did not exist.</p></div>
 <pre><code class="python">def remove_vertex(self, vertex):
     &#34;&#34;&#34;
     Removes a vertex and all its associated edges from the graph.
+
+        * :param vertex: The vertex identifier.
     Complexity: O(deg_in + deg_out)
+
     Returns True if successful, False if vertex does not exist.
     &#34;&#34;&#34;
     if vertex not in self._vertices:
@@ -250,9 +291,11 @@ Returns True if removed, False if edge did not exist.</p></div>
     self._vertices.remove(vertex)
     return True</code></pre>
 </details>
-<div class="desc"><p>Removes a vertex and all its associated edges from the graph.
-Complexity: O(deg_in + deg_out)
-Returns True if successful, False if vertex does not exist.</p></div>
+<div class="desc"><p>Removes a vertex and all its associated edges from the graph.</p>
+<pre><code>* :param vertex: The vertex identifier.
+</code></pre>
+<p>Complexity: O(deg_in + deg_out)</p>
+<p>Returns True if successful, False if vertex does not exist.</p></div>
 </dd>
 </dl>
 <h3>Inherited members</h3>

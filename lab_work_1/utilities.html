@@ -63,6 +63,8 @@ el.replaceWith(d);
     def read_from_file(filename):
         &#34;&#34;&#34;
         Reads graph data from a file and returns a GraphOperations object.
+
+            * :param filename: The name of the file to read.
         Complexity: O(E)
         &#34;&#34;&#34;
         with open(filename, &#39;r&#39;) as f:
@@ -79,6 +81,9 @@ el.replaceWith(d);
     def write_to_file(filename, graph):
         &#34;&#34;&#34;
         Writes the vertex count and all edges of the graph to a file.
+
+            * :param filename: The name of the file to write.
+            * :param graph: The graph to write.
         Complexity: O(V + E)
         &#34;&#34;&#34;
         with open(filename, &#39;w&#39;) as f:
@@ -94,6 +99,9 @@ el.replaceWith(d);
     def generate_random_graph(n, m):
         &#34;&#34;&#34;
         Generates a random directed graph with n vertices and m edges.
+
+            * :param n: The number of vertices.
+            * :param m: The number of edges.
         Complexity: O(m) average case.
         &#34;&#34;&#34;
         if m &gt; n * n:
@@ -127,6 +135,9 @@ el.replaceWith(d);
 def generate_random_graph(n, m):
     &#34;&#34;&#34;
     Generates a random directed graph with n vertices and m edges.
+
+        * :param n: The number of vertices.
+        * :param m: The number of edges.
     Complexity: O(m) average case.
     &#34;&#34;&#34;
     if m &gt; n * n:
@@ -145,8 +156,11 @@ def generate_random_graph(n, m):
 
     return g</code></pre>
 </details>
-<div class="desc"><p>Generates a random directed graph with n vertices and m edges.
-Complexity: O(m) average case.</p></div>
+<div class="desc"><p>Generates a random directed graph with n vertices and m edges.</p>
+<pre><code>* :param n: The number of vertices.
+* :param m: The number of edges.
+</code></pre>
+<p>Complexity: O(m) average case.</p></div>
 </dd>
 <dt id="utilities.Utilities.read_from_file"><code class="name flex">
 <span>def <span class="ident">read_from_file</span></span>(<span>filename)</span>
@@ -160,6 +174,8 @@ Complexity: O(m) average case.</p></div>
 def read_from_file(filename):
     &#34;&#34;&#34;
     Reads graph data from a file and returns a GraphOperations object.
+
+        * :param filename: The name of the file to read.
     Complexity: O(E)
     &#34;&#34;&#34;
     with open(filename, &#39;r&#39;) as f:
@@ -172,8 +188,10 @@ def read_from_file(filename):
             graph.add_edge(u, v, c)
     return graph</code></pre>
 </details>
-<div class="desc"><p>Reads graph data from a file and returns a GraphOperations object.
-Complexity: O(E)</p></div>
+<div class="desc"><p>Reads graph data from a file and returns a GraphOperations object.</p>
+<pre><code>* :param filename: The name of the file to read.
+</code></pre>
+<p>Complexity: O(E)</p></div>
 </dd>
 <dt id="utilities.Utilities.write_to_file"><code class="name flex">
 <span>def <span class="ident">write_to_file</span></span>(<span>filename, graph)</span>
@@ -187,6 +205,9 @@ Complexity: O(E)</p></div>
 def write_to_file(filename, graph):
     &#34;&#34;&#34;
     Writes the vertex count and all edges of the graph to a file.
+
+        * :param filename: The name of the file to write.
+        * :param graph: The graph to write.
     Complexity: O(V + E)
     &#34;&#34;&#34;
     with open(filename, &#39;w&#39;) as f:
@@ -198,8 +219,11 @@ def write_to_file(filename, graph):
         for u, v, c in edge_list:
             f.write(f&#34;{u} {v} {c}\n&#34;)</code></pre>
 </details>
-<div class="desc"><p>Writes the vertex count and all edges of the graph to a file.
-Complexity: O(V + E)</p></div>
+<div class="desc"><p>Writes the vertex count and all edges of the graph to a file.</p>
+<pre><code>* :param filename: The name of the file to write.
+* :param graph: The graph to write.
+</code></pre>
+<p>Complexity: O(V + E)</p></div>
 </dd>
 </dl>
 </dd>

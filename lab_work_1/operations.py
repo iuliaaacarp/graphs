@@ -11,7 +11,12 @@ class GraphOperations(DirectedGraph):
     def add_edge(self, u, v, cost):
         """
         Adds a directed edge from u to v with the specified cost.
+
+            * :param u: The vertex u identifier.
+            * :param v: The vertex v identifier.
+            * :param cost: The cost of the edge.
         Complexity: O(1)
+
         Returns True if added, False if vertices don't exist or edge already exists.
         """
         if u in self._vertices and v in self._vertices:
@@ -24,7 +29,11 @@ class GraphOperations(DirectedGraph):
     def remove_edge(self, u, v):
         """
         Removes the directed edge from u to v.
+
+            * :param u: The vertex u identifier.
+            * :param v: The vertex v identifier.
         Complexity: O(1)
+
         Returns True if removed, False if edge did not exist.
         """
         if not self.is_edge(u, v):
@@ -36,7 +45,10 @@ class GraphOperations(DirectedGraph):
     def add_vertex(self, vertex):
         """
         Adds a new vertex to the graph.
+
+            * :param vertex: The new vertex identifier.
         Complexity: O(1)
+
         Returns True if successful, False if vertex already exists.
         """
         if vertex not in self._vertices:
@@ -49,7 +61,10 @@ class GraphOperations(DirectedGraph):
     def remove_vertex(self, vertex):
         """
         Removes a vertex and all its associated edges from the graph.
+
+            * :param vertex: The vertex identifier.
         Complexity: O(deg_in + deg_out)
+
         Returns True if successful, False if vertex does not exist.
         """
         if vertex not in self._vertices:
@@ -66,6 +81,7 @@ class GraphOperations(DirectedGraph):
     def copy_graph(self):
         """
         Returns a deep copy of the current graph.
+
         Complexity: O(V + E)
         """
         return copy.deepcopy(self)

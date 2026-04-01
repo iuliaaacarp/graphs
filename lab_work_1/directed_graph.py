@@ -14,6 +14,7 @@ class DirectedGraph:
     def __init__(self, vertices=0):
         """
         Initializes a directed graph with a fixed number of vertices (0 to n-1).
+
         Complexity: O(V)
         """
         self._vertices = set(range(vertices))
@@ -23,6 +24,7 @@ class DirectedGraph:
     def get_number_of_vertices(self):
         """
         Returns the total number of vertices in the graph.
+
         Complexity: O(1)
         """
         return len(self._vertices)
@@ -30,6 +32,8 @@ class DirectedGraph:
     def get_in_degree(self, vertex):
         """
         Returns the number of inbound edges for a given vertex.
+
+            * :param vertex: The vertex identifier.
         Complexity: O(1)
         """
         return len(self._in_neighbors[vertex])
@@ -37,6 +41,8 @@ class DirectedGraph:
     def get_out_degree(self, vertex):
         """
         Returns the number of outbound edges for a given vertex.
+
+            * :param vertex: The vertex identifier.
         Complexity: O(1)
         """
         return len(self._out_neighbors[vertex])
@@ -44,6 +50,9 @@ class DirectedGraph:
     def get_edge_cost(self, u, v):
         """
         Returns the cost of the edge from vertex u to vertex v.
+
+            * :param u: The vertex u identifier.
+            * :param v: The vertex v identifier.
         Complexity: O(1)
         """
         return self._out_neighbors[u][v]
@@ -51,7 +60,12 @@ class DirectedGraph:
     def set_edge_cost(self, u, v, cost):
         """
         Updates the cost of an existing edge (u, v).
+
+            * :param u: The vertex u identifier.
+            * :param v: The vertex v identifier.
+            * :param cost: The new cost.
         Complexity: O(1)
+
         Raises Exception if the edge does not exist.
         """
         if v in self._out_neighbors[u]:
@@ -63,6 +77,7 @@ class DirectedGraph:
     def iterate_vertices(self):
         """
         Returns an iterator for the set of vertices.
+
         Complexity: O(1)
         """
         return iter(self._vertices)
@@ -70,6 +85,8 @@ class DirectedGraph:
     def iterate_out_neighbours(self, u):
         """
         Returns an iterator over the keys (neighbors) of the outbound edges of u.
+
+            * :param u: The vertex identifier.
         Complexity: O(1)
         """
         return iter(self._out_neighbors[u].keys())
@@ -77,6 +94,8 @@ class DirectedGraph:
     def iterate_in_neighbours(self, u):
         """
         Returns an iterator over the keys (neighbors) of the inbound edges of u.
+
+            * :param u: The vertex identifier.
         Complexity: O(1)
         """
         return iter(self._in_neighbors[u].keys())
@@ -84,13 +103,17 @@ class DirectedGraph:
     def is_edge(self, u, v):
         """
         Checks if a directed edge exists from u to v.
+
+            * :param u: The vertex u identifier.
+            * :param v: The vertex v identifier.
         Complexity: O(1)
         """
         return u in self._out_neighbors and v in self._out_neighbors[u]
 
     def iterate_vertices(self):
         """
-        Returns an iterator for all vertices in the graph.
+        Returns an iterator for all vertices in the graph
+
         Usage: for v in graph.iterate_vertices():
         """
         return iter(self._vertices)
@@ -98,6 +121,8 @@ class DirectedGraph:
     def iterate_out_neighbors(self, u):
         """
         Returns an iterator for the vertices v such that there is an edge (u, v).
+
+            * :param u: The vertex identifier.
         Usage: for v in graph.iterate_out_neighbors(u):
         """
         if u not in self._out_neighbors:
@@ -107,6 +132,8 @@ class DirectedGraph:
     def iterate_in_neighbors(self, v):
         """
         Returns an iterator for the vertices u such that there is an edge (u, v).
+
+            * :param v: The vertex identifier.
         Usage: for u in graph.iterate_in_neighbors(v):
         """
         if v not in self._in_neighbors:

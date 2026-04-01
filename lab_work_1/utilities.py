@@ -11,6 +11,8 @@ class Utilities:
     def read_from_file(filename):
         """
         Reads graph data from a file and returns a GraphOperations object.
+
+            * :param filename: The name of the file to read.
         Complexity: O(E)
         """
         with open(filename, 'r') as f:
@@ -27,6 +29,9 @@ class Utilities:
     def write_to_file(filename, graph):
         """
         Writes the vertex count and all edges of the graph to a file.
+
+            * :param filename: The name of the file to write.
+            * :param graph: The graph to write.
         Complexity: O(V + E)
         """
         with open(filename, 'w') as f:
@@ -42,6 +47,9 @@ class Utilities:
     def generate_random_graph(n, m):
         """
         Generates a random directed graph with n vertices and m edges.
+
+            * :param n: The number of vertices.
+            * :param m: The number of edges.
         Complexity: O(m) average case.
         """
         if m > n * n:
