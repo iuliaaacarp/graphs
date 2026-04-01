@@ -23,14 +23,15 @@ class UI:
         print(" 10. Check if edge exists")
         print(" 11. List all vertices")
         print(" 12. List neighbors of a vertex")
-        print(" 13. List all vertices")
+        print(" 13. Iterate through all vertices")
         print(" 14. List all outbound neighbors of a vertex")
         print(" 15. List all inbound neighbors of a vertex")
-        print(" 16. Create random graph")
+        print(" 16. Show the whole graph")
         print("  0. Exit")
         print("====================================")
 
     def run(self):
+        self._graph = self._utilities.read_from_file("graph1k.txt")
         while True:
             self._print_menu()
             choice = input(">> Select an option: ")
@@ -95,6 +96,7 @@ class UI:
                     for v in self._graph.iterate_vertices():
                         print(f">> Vertex {v}:")
                         print(f"In-degree: {self._graph.get_in_degree(v)} | Out-degree: {self._graph.get_out_degree(v)}")
+                        print("------------------------------------")
                 elif choice == "10":
                     u = int(input(">> Source vertex: "))
                     v = int(input(">> Target vertex: "))
@@ -105,7 +107,8 @@ class UI:
                         print("--> Edge does not exist.")
 
                 elif choice == "11":
-                    print("--> Vertices:", list(self._graph.iterate_vertices()))
+                    print("--> Vertices as list:")
+                    print(list(self._graph.iterate_vertices()))
 
                 elif choice == "12":
                     u = int(input(">> Vertex ID: "))
@@ -125,7 +128,8 @@ class UI:
                     print(f"--> Iterating through outbound neighbors of {u}:")
                     for v in self._graph.iterate_out_neighbors(u):
                         cost = self._graph.get_edge_cost(u, v)
-                        print(f" -> Target: {v} (Cost: {cost})")
+                        print(f" -> Target: {v} | Cost: {cost}")
+                        print("------------------------------------")
 
                 elif choice == "15":
                     v = int(input(">> Enter target vertex: "))
@@ -133,14 +137,19 @@ class UI:
                     print(f"Iterating through inbound neighbors of {v}:")
                     for u in self._graph.iterate_in_neighbors(v):
                         cost = self._graph.get_edge_cost(u, v)
-                        print(f" <- Source: {u} (Cost: {cost})")
+                        print(f" -> Source: {u} (Cost: {cost})")
+                        print("------------------------------------")
 
                 elif choice == "16":
-                    n = int(input(">> Enter number of vertices: "))
-                    m = int(input(">> Enter number of edges: "))
                     print("====================================")
-                    self._graph = self._utilities.generate_random_graph(n, m)
-                    print(f"--> Successfully generated a random graph with {n} vertices and {m} edges.")
+                    print("Displaying the whole graph:")
+                    print("====================================")
+                    for u in range(0, self._graph.get_number_of_vertices()):
+                        print("------------------------------------")
+                        print(f"--- Vertex {u}:")
+                        print(f"> Outbound neighbors: {list(self._graph.iterate_out_neighbours(u))}")
+                        print(f"> Inbound neighbors: {list(self._graph.iterate_in_neighbours(u))}")
+
                 elif choice == "0":
                     print("--> Goodbye!")
                     break
